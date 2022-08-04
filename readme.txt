@@ -10,7 +10,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 WordPress integration for Yandex Smart Captcha
 
 == Description ==
+Yandex captcha integrates into the form of sending comments, authorization, registration and password recovery.
 
+More features in the next updates
 
 == Changelog ==
 

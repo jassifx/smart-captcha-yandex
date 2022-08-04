@@ -104,7 +104,7 @@ abstract class Plugin_Base {
 	 *
 	 * @return false|mixed|void
 	 */
-	public function getOption( string $option_name, $default_value = '' ) {
+	public static function getOption( string $option_name, $default_value = '' ) {
 		$option = get_option( WYSC_PLUGIN_PREFIX . '_' . $option_name );
 
 		return false !== $option ? $option : $default_value;
@@ -118,7 +118,7 @@ abstract class Plugin_Base {
 	 *
 	 * @return bool
 	 */
-	public function addOption( string $option_name, $option_value ): bool {
+	public static function addOption( string $option_name, $option_value ): bool {
 		return add_option( WYSC_PLUGIN_PREFIX . '_' . $option_name, $option_value );
 	}
 
@@ -130,7 +130,7 @@ abstract class Plugin_Base {
 	 *
 	 * @return bool
 	 */
-	public function updateOption( string $option_name, $option_value ): bool {
+	public static function updateOption( string $option_name, $option_value ): bool {
 		return update_option( WYSC_PLUGIN_PREFIX . '_' . $option_name, $option_value );
 	}
 
@@ -141,7 +141,7 @@ abstract class Plugin_Base {
 	 *
 	 * @return bool
 	 */
-	public function deleteOption( string $option_name ): bool {
+	public static function deleteOption( string $option_name ): bool {
 		return delete_option( WYSC_PLUGIN_PREFIX . '_' . $option_name );
 	}
 
