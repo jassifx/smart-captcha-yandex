@@ -25,8 +25,8 @@ class Page_Settings extends PageSettingsBase {
 
 		$this->id                 = 'settings';
 		$this->page_menu_position = 20;
-		$this->page_title         = __( 'Yandex Smart Captcha Settings', 'yandex-smart-captcha' );
-		$this->page_menu_title    = __( 'Smart Captcha Settings', 'yandex-smart-captcha' );
+		$this->page_title         = __( 'Yandex Smart Captcha Settings', 'smart-captcha-yandex' );
+		$this->page_menu_title    = __( 'Smart Captcha Settings', 'smart-captcha-yandex' );
 
 		$this->settings = $this->settings();
 
@@ -43,21 +43,21 @@ class Page_Settings extends PageSettingsBase {
 			'settings_group' => [
 				'sections' => [
 					[
-						'title'   => __( 'Настройки API', 'yandex-smart-captcha' ),
+						'title'   => __( 'Настройки API', 'smart-captcha-yandex' ),
 						'slug'    => 'section_api',
 						'options' => [
 							'client_token' => [
-								'title'   => __( 'Ключ клиента', 'yandex-smart-captcha' ),
+								'title'   => __( 'Ключ клиента', 'smart-captcha-yandex' ),
 								'type'    => 'text',
 								'default' => '',
 							],
 							'server_token' => [
-								'title'   => __( 'Ключ сервера', 'yandex-smart-captcha' ),
+								'title'   => __( 'Ключ сервера', 'smart-captcha-yandex' ),
 								'default' => '',
 							],
 							/*
 							'check_option' => [
-									'title'             => __( 'Checkbox', 'yandex-smart-captcha' ),
+									'title'             => __( 'Checkbox', 'smart-captcha-yandex' ),
 									'type'  			=> 'checkbox',
 									'default'			=> '',
 							],

@@ -1,4 +1,4 @@
-=== Yandex Smart Captcha ===
+=== Smart Captcha Yandex ===
 Contributors: webtemyk
 Requires at least: 5.0
 Tested up to: 6.0

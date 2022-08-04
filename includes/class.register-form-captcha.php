@@ -51,7 +51,7 @@ class RegistrationFormCaptcha {
 			}
 		}
 
-		$errors->add( 'captcha_error', esc_html__( 'Пожалуйста, пройдите капчу.', 'yandex-smart-captcha' ) );
+		$errors->add( 'captcha_error', esc_html__( 'Пожалуйста, пройдите капчу.', 'smart-captcha-yandex' ) );
 
 		return $errors;
 	}

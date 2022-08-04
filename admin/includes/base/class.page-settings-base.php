@@ -63,7 +63,7 @@ abstract class PageSettingsBase extends PageBase {
 	public function fill_checkbox_field( string $option_name ) {
 		$val   = get_option( $option_name );
 		$val   = $val ? 1 : 0;
-		$check = __( 'Выбрать', 'yandex-smart-captcha' );
+		$check = __( 'Выбрать', 'smart-captcha-yandex' );
 		?>
 		<label for="<?php echo esc_attr( $option_name ); ?>">
 			<input type="checkbox" name="<?php echo esc_attr( $option_name ); ?>"

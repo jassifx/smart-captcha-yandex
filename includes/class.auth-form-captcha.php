@@ -67,6 +67,6 @@ class AuthFormCaptcha {
 			}
 		}
 
-		return new WP_Error( 'wysc_spam_check_failed', esc_html__( 'Ошибка авторизации. Введите капчу', 'yandex-smart-captcha' ) );
+		return new WP_Error( 'wysc_spam_check_failed', esc_html__( 'Ошибка авторизации. Введите капчу', 'smart-captcha-yandex' ) );
 	}
 }

@@ -47,6 +47,6 @@ class CommentsFormCaptcha {
 			}
 		}
 
-		wp_die( esc_html__( 'Пожалуйста, пройдите капчу.', 'yandex-smart-captcha' ) );
+		wp_die( esc_html__( 'Пожалуйста, пройдите капчу.', 'smart-captcha-yandex' ) );
 	}
 }

@@ -161,7 +161,7 @@ abstract class Plugin_Base {
 
 			echo apply_filters( WYSC_PLUGIN_PREFIX . '/content/template', ob_get_clean(), $template_name, $args ); // @codingStandardsIgnoreLine
 		} else {
-			echo apply_filters( WYSC_PLUGIN_PREFIX . '/message/template_not_found', __( 'This template does not exist!', 'yandex-smart-captcha' ) ); // @codingStandardsIgnoreLine
+			echo apply_filters( WYSC_PLUGIN_PREFIX . '/message/template_not_found', __( 'This template does not exist!', 'smart-captcha-yandex' ) ); // @codingStandardsIgnoreLine
 		}
 	}
 }

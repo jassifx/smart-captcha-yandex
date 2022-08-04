@@ -15,8 +15,8 @@ class Page_Main extends PageBase {
 		$this->id                 = 'main';
 		$this->page_menu_dashicon = 'dashicons-superhero-alt';
 		$this->page_menu_position = 20;
-		$this->page_title         = __( 'My Plugin Page', 'yandex-smart-captcha' );
-		$this->page_menu_title    = __( 'My Plugin Page', 'yandex-smart-captcha' );
+		$this->page_title         = __( 'My Plugin Page', 'smart-captcha-yandex' );
+		$this->page_menu_title    = __( 'My Plugin Page', 'smart-captcha-yandex' );
 
 		add_action( 'admin_init', [ $this, 'init_settings' ] );
 	}
