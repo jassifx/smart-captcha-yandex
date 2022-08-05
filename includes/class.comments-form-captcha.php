@@ -25,12 +25,12 @@ class CommentsFormCaptcha {
 		$client_key = Plugin::getOption( 'client_token' );
 
 		wp_enqueue_script( 'wysc_script' );
-		echo '<p class="comment-form-captcha"><div
+		echo wp_kses_post( '<p class="comment-form-captcha"><div
 			  style="height: 98px;"
 			  id="captcha-container"
 			  class="smart-captcha"
 			  data-sitekey="' . esc_attr( $client_key ) . '"
-			  ></div></p>';
+			  ></div></p>' );
 	}
 
 	/**

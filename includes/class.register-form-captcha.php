@@ -30,11 +30,11 @@ class RegistrationFormCaptcha {
 		$client_key = Plugin::getOption( 'client_token' );
 
 		wp_enqueue_script( 'wysc_script' );
-		echo '<div style="height: 98px; min-width: 200px; margin: 0 0 16px 0;"
+		echo wp_kses_post( '<div style="height: 98px; min-width: 200px; margin: 0 0 16px 0;"
 			  id="captcha-container"
 			  class="smart-captcha"
 			  data-sitekey="' . esc_attr( $client_key ) . '"
-			  ></div>';
+			  ></div>' );
 	}
 
 	/**

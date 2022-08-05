@@ -12,8 +12,8 @@ function wysc_check_smart_captcha( $token ) {
 
 	$args     = http_build_query( [
 		'secret' => $server_key,
-		'token'  => esc_attr( $token ),
-		'ip'     => esc_attr( $_SERVER['REMOTE_ADDR'] ),
+		'token'  => sanitize_text_field( $token ),
+		'ip'     => sanitize_text_field( $_SERVER['REMOTE_ADDR'] ),
 	] );
 	$response = wp_remote_get( "https://captcha-api.yandex.ru/validate?{$args}" );
 

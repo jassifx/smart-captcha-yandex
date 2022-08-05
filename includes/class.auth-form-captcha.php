@@ -20,7 +20,7 @@ class AuthFormCaptcha {
 		add_action( 'login_form', [ $this, 'extend_fields' ] );
 
 		if ( ! is_user_logged_in() ) {
-			add_filter( 'authenticate', [ $this, 'check_captcha' ], 999 );
+			add_filter( 'authenticate', [ $this, 'check_captcha' ], 999, 2 );
 		}
 
 	}
@@ -35,17 +35,17 @@ class AuthFormCaptcha {
 
 		wp_enqueue_script( 'wysc_script' );
 
-		$output = '<div
+		$output = wp_kses_post( '<div
 			  style="height: 98px; min-width: 200px; margin: 0 0 16px 0;"
 			  id="captcha-container"
 			  class="smart-captcha"
 			  data-sitekey="' . esc_attr( $client_key ) . '"
-			  ></div>';
+			  ></div>' );
 
 		if ( doing_action( 'login_form_middle' ) ) {
 			return $output;
 		} else {
-			echo $output;
+			echo wp_kses_post( $output );
 		}
 	}
 
