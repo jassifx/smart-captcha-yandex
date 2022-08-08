@@ -37,7 +37,7 @@ try {
 } catch ( Exception $e ) {
 	$wysc_plugin_error_func = function () use ( $e ) {
 		$error = sprintf( __( 'The %1$s plugin has stopped. <b>Error:</b> %2$s Code: %3$s', 'smart-captcha-yandex' ), 'Yandex Smart Captcha', $e->getMessage(), $e->getCode() );
-		echo wp_kses_post( '<div class="notice notice-error"><p>' . $error . '</p></div>' ); // @codingStandardsIgnoreLine
+		echo wp_kses_post( '<div class="notice notice-error"><p>' . $error . '</p></div>' );
 	};
 
 	add_action( 'admin_notices', $wysc_plugin_error_func );
