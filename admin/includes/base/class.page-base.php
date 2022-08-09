@@ -45,7 +45,7 @@ abstract class PageBase {
 	}
 
 	public function add_page_to_menu() {
-		add_menu_page( $this->page_title, $this->page_menu_title, 'manage_options', WYSC_PLUGIN_PREFIX . '_' . $this->id, [
+		add_options_page( $this->page_title, $this->page_menu_title, 'manage_options', WYSC_PLUGIN_PREFIX . '_' . $this->id, [
 			$this,
 			'page_action',
 		], $this->page_menu_dashicon, $this->page_menu_position );
