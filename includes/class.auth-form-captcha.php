@@ -61,6 +61,16 @@ class AuthFormCaptcha {
 			return $user;
 		}
 
+		// Bail if a rest request.
+		if ( $this->is_rest_request() ) {
+			return $user;
+		}
+
+		// Bail if a rest request.
+		if ( str_contains( $_SERVER['REQUEST_URI'], 'xmlrpc.php' ) ) {
+			return $user;
+		}
+
 		if ( isset( $_POST['smart-token'] ) ) {
 			if ( wysc_check_smart_captcha( $_POST['smart-token'] ) ) {
 				return $user;
@@ -68,5 +78,27 @@ class AuthFormCaptcha {
 		}
 
 		return new WP_Error( 'wysc_spam_check_failed', esc_html__( 'Ошибка авторизации. Введите капчу', 'smart-captcha-yandex' ) );
+	}
+
+	/**
+	 * Checks if the current authentication request is RESTy or a custom URL where it should not load.
+	 *
+	 * @return boolean - Was a rest request?
+	 */
+	public function is_rest_request() {
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST || isset( $_GET['rest_route'] ) && strpos( sanitize_text_field( wp_unslash( $_GET['rest_route'] ) ), '/', 0 ) === 0 ) {
+			return true;
+		}
+
+		global $wp_rewrite;
+		if ( null === $wp_rewrite ) {
+			$wp_rewrite = new \WP_Rewrite();
+		}
+
+		$rest_url    = wp_parse_url( trailingslashit( rest_url() ) );
+		$current_url = wp_parse_url( add_query_arg( [] ) );
+		$is_rest     = strpos( $current_url['path'], $rest_url['path'], 0 ) === 0;
+
+		return $is_rest;
 	}
 }

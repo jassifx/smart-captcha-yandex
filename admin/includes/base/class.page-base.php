@@ -48,7 +48,7 @@ abstract class PageBase {
 		add_options_page( $this->page_title, $this->page_menu_title, 'manage_options', WYSC_PLUGIN_PREFIX . '_' . $this->id, [
 			$this,
 			'page_action',
-		], $this->page_menu_dashicon, $this->page_menu_position );
+		], $this->page_menu_position );
 	}
 
 	abstract public function page_action();
