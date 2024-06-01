@@ -35,25 +35,25 @@ class AuthFormCaptcha {
 
 		wp_enqueue_script( 'wysc_script' );
 
-		$output = wp_kses_post( '<div
-			  style="height: 98px; min-width: 200px; margin: 0 0 16px 0;"
-			  id="captcha-container"
-			  class="smart-captcha"
-			  data-sitekey="' . esc_attr( $client_key ) . '"
-			  ></div>' );
+		$output = '<div ' .
+			'style="height: 98px; min-width: 200px; margin: 0 0 16px 0;" ' .
+			'id="captcha-container" ' .
+			'class="smart-captcha" ' .
+			'data-sitekey="' . esc_attr( $client_key ) . '"' .
+			'></div>';
 
 		if ( doing_action( 'login_form_middle' ) ) {
 			return $output;
 		} else {
-			echo wp_kses_post( $output );
+			echo $output;
 		}
 	}
 
 	/**
-	 * @param WP_User $user - User object.
-	 * @param string $username - Login username.
+	 * @param WP_User|WP_Error $user - User object or WP_Error.
+	 * @param string           $username - Login username.
 	 *
-	 * @return WP_User|WP_Error - Always return the user, WP Error otherwise.
+	 * @return WP_User|WP_Error - User object or WP_Error.
 	 */
 	public function check_captcha( $user, $username ) {
 
@@ -61,13 +61,8 @@ class AuthFormCaptcha {
 			return $user;
 		}
 
-		// Bail if a rest request.
-		if ( $this->is_rest_request() ) {
-			return $user;
-		}
-
-		// Bail if a rest request.
-		if ( str_contains( $_SERVER['REQUEST_URI'], 'xmlrpc.php' ) ) {
+		// Bail if a REST request.
+		if ( $this->is_rest_request() || str_contains( $_SERVER['REQUEST_URI'], 'xmlrpc.php' ) ) {
 			return $user;
 		}
 
@@ -77,13 +72,13 @@ class AuthFormCaptcha {
 			}
 		}
 
-		return new WP_Error( 'wysc_spam_check_failed', esc_html__( 'Ошибка авторизации. Введите капчу', 'smart-captcha-yandex' ) );
+		return new WP_Error( 'wysc_spam_check_failed', esc_html__( 'Authentication error. Please complete the captcha.', 'smart-captcha-yandex' ) );
 	}
 
 	/**
-	 * Checks if the current authentication request is RESTy or a custom URL where it should not load.
+	 * Checks if the current authentication request is a REST request or a custom URL where it should not load.
 	 *
-	 * @return boolean - Was a rest request?
+	 * @return boolean - Is a REST request?
 	 */
 	public function is_rest_request() {
 		if ( defined( 'REST_REQUEST' ) && REST_REQUEST || isset( $_GET['rest_route'] ) && strpos( sanitize_text_field( wp_unslash( $_GET['rest_route'] ) ), '/', 0 ) === 0 ) {
