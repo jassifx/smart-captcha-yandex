@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Smart Captcha Yandex
  * Description: WordPress integration for Yandex Smart Captcha
- * Version:     F-1.0
+ * Version:     1.1A
  * Author:      Jaspreet Singh
  * Author URI:  https://www.jaspreet.net
  * Text Domain: smart-captcha-yandex
