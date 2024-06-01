@@ -1,3 +1,8 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/jassifx/smart-captcha-yandex)
+![GitHub last commit](https://img.shields.io/github/last-commit/jassifx/smart-captcha-yandex)
+![GitHub issues](https://img.shields.io/github/issues/jassifx/smart-captcha-yandex)
+![GitHub](https://img.shields.io/github/license/jassifx/smart-captcha-yandex)
+
 # Интеграция Yandex Smart Captcha для вашего WordPress сайта #
 
 ## Language Selection
