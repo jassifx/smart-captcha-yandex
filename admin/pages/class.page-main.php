@@ -18,10 +18,10 @@ class Page_Main extends PageBase {
 		$this->page_title         = __( 'My Plugin Page', 'smart-captcha-yandex' );
 		$this->page_menu_title    = __( 'My Plugin Page', 'smart-captcha-yandex' );
 
-		add_action( 'admin_init', [ $this, 'init_settings' ] );
+		add_action( 'admin_init', array( $this, 'init_settings' ) );
 	}
 
 	public function page_action() {
-		$this->plugin->render_template( 'my-plugin-page', [ 'key' => 'value' ] );
+		$this->plugin->render_template( 'my-plugin-page', array( 'key' => 'value' ) );
 	}
 }
