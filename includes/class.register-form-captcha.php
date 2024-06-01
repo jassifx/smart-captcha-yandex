@@ -18,7 +18,6 @@ class RegistrationFormCaptcha {
 			add_action( 'resetpass_form', [ $this, 'extend_fields' ], 99 );
 			add_filter( 'validate_password_reset', [ $this, 'check_captcha' ], 10, 2 );
 		}
-
 	}
 
 	/**
@@ -30,19 +29,18 @@ class RegistrationFormCaptcha {
 		$client_key = Plugin::getOption( 'client_token' );
 
 		wp_enqueue_script( 'wysc_script' );
-		echo wp_kses_post( '<div style="height: 98px; min-width: 200px; margin: 0 0 16px 0;"
-			  id="captcha-container"
-			  class="smart-captcha"
-			  data-sitekey="' . esc_attr( $client_key ) . '"
-			  ></div>' );
+		echo '<div style="height: 98px; min-width: 200px; margin: 0 0 16px 0;"' .
+		     ' id="captcha-container"' .
+		     ' class="smart-captcha"' .
+		     ' data-sitekey="' . esc_attr( $client_key ) . '"' .
+		     '></div>';
 	}
 
 	/**
-	 * @param $errors
-	 * @param $sanitized_user_login
-	 * @param $user_email
+	 * @param \WP_Error $errors
+	 * @param string $sanitized_user_login
 	 *
-	 * @return array|void
+	 * @return \WP_Error
 	 */
 	public function check_captcha( $errors, $sanitized_user_login ) {
 		if ( isset( $_POST['smart-token'] ) ) {
@@ -51,7 +49,7 @@ class RegistrationFormCaptcha {
 			}
 		}
 
-		$errors->add( 'captcha_error', esc_html__( 'Пожалуйста, пройдите капчу.', 'smart-captcha-yandex' ) );
+		$errors->add( 'captcha_error', esc_html__( 'Please complete the captcha.', 'smart-captcha-yandex' ) );
 
 		return $errors;
 	}
