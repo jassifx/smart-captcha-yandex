@@ -43,16 +43,16 @@ class Page_Settings extends PageSettingsBase {
 			'settings_group' => [
 				'sections' => [
 					[
-						'title'   => __( 'Настройки API', 'smart-captcha-yandex' ),
+						'title'   => __( 'API Settings', 'smart-captcha-yandex' ),
 						'slug'    => 'section_api',
 						'options' => [
 							'client_token' => [
-								'title'   => __( 'Ключ клиента', 'smart-captcha-yandex' ),
+								'title'   => __( 'Client Key', 'smart-captcha-yandex' ),
 								'type'    => 'text',
 								'default' => '',
 							],
 							'server_token' => [
-								'title'   => __( 'Ключ сервера', 'smart-captcha-yandex' ),
+								'title'   => __( 'Server Key', 'smart-captcha-yandex' ),
 								'default' => '',
 							],
 							/*
