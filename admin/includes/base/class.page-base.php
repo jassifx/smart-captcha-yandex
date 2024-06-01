@@ -7,39 +7,39 @@ abstract class PageBase {
 	/**
 	 * @var string
 	 */
-	public $id = '';
+	public string $id = '';
 
 	/**
 	 * @var string
 	 */
-	public $page_menu_dashicon = '';
+	public string $page_menu_dashicon = '';
 
 	/**
 	 * @var int
 	 */
-	public $page_menu_position = 20;
+	public int $page_menu_position = 20;
 
 	/**
 	 * @var Plugin
 	 */
-	protected $plugin;
+	protected Plugin $plugin;
 
 	/**
 	 * @var string
 	 */
-	protected $page_title = '';
+	protected string $page_title = '';
 
 	/**
 	 * @var string
 	 */
-	protected $page_menu_title = '';
+	protected string $page_menu_title = '';
 
 	/**
 	 * PageBase constructor.
 	 *
 	 * @param Plugin $plugin
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 		add_action( 'admin_menu', [ $this, 'add_page_to_menu' ] );
 	}
