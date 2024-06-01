@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Smart Captcha Yandex
  * Description: WordPress integration for Yandex Smart Captcha
- * Version:     1.0.1
- * Author:      Webtemyk <webtemyk@yandex.ru>
- * Author URI:  https://temyk.ru
+ * Version:     F-1.0
+ * Author:      Jaspreet Singh
+ * Author URI:  https://www.jaspreet.net
  * Text Domain: smart-captcha-yandex
  * Domain Path: /languages/
  * License:     GPL-2.0+
