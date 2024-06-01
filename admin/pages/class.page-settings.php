@@ -11,7 +11,7 @@ class Page_Settings extends PageSettingsBase {
 	/**
 	 * @var array
 	 */
-	public $tabs = [
+	public array $tabs = [
 		'api' => 'API',
 	];
 
